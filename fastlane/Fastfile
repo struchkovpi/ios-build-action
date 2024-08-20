@@ -14,6 +14,10 @@ platform :ios do
 
     ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "120"
 
+    begin
+      delete_keychain(name: keychain_name)
+    rescue
+    end
     create_keychain(
       name: keychain_name,
       password: "",
