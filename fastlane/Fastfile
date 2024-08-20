@@ -5,14 +5,14 @@ platform :ios do
   lane :export_ipa do
     decode_file
 
-    keychain_name = nil
-    if !ENV['CUSTOM_KEYCHAIN_NAME'].empty?
-      keychain_name = ENV['CUSTOM_KEYCHAIN_NAME']
-    else
-      keychain_name = 'ios-build.keychain'
-    end
+    keychain_name = 'ios-build.keychain'
+    # if !ENV['CUSTOM_KEYCHAIN_NAME'].empty?
+    #   keychain_name = ENV['CUSTOM_KEYCHAIN_NAME']
+    # else
+    #   keychain_name = 'ios-build.keychain'
+    # end
 
-    ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "120"
+    ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "240"
 
     begin
       delete_keychain(name: keychain_name)
@@ -21,9 +21,9 @@ platform :ios do
     create_keychain(
       name: keychain_name,
       password: "",
-      default_keychain: false,
+      default_keychain: true,
       unlock: true,
-      timeout: 3600
+      timeout: 360000
     )
 
     if @is_split_cer
