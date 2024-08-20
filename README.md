@@ -43,7 +43,7 @@ You can add a single p12 key+cert file with `p12-base64 (p12-path)`, or if you h
 **Required**: Base64 encoded mobileprovision file. If you want to specify multiple files, you need to input in multiple lines and then use [`export-options`](#export-options) to specify the provisioning profile to use for each executable in your app.
 
 ```yaml
-- uses: labis-suro/ios-build-action@v1.0.0
+- uses: labis-suro/ios-build-action@1.0.1
   with:
     mobileprovision-base64: |
       ${{ secrets.MY_MOBILEPROVISION_BASE64 }}
@@ -59,7 +59,7 @@ Also note, when creating base64 encoded inputs, make sure they don't contain new
 **Required**: mobileprovision path. If you want to specify multiple files, you need to input in multiple lines and then use [`export-options`](#export-options) to specify the provisioning profile to use for each executable in your app.
 
 ```yaml
-- uses: labis-suro/ios-build-action@v1.0.0
+- uses: labis-suro/ios-build-action@1.0.1
   with:
     mobileprovision-path: |
       ios-build-1.mobileprovision
@@ -190,7 +190,7 @@ Welcome your contributions!
 ### single p12
 
 ```yaml
-- uses: labis-suro/ios-build-action@v1.0.0
+- uses: labis-suro/ios-build-action@1.0.1
   with:
     project-path: Unity-iPhone.xcodeproj
     p12-base64: ${{ secrets.P12_BASE64 }}
@@ -203,7 +203,7 @@ Welcome your contributions!
 ### key and cert
 
 ```yaml
-- uses: labis-suro/ios-build-action@v1.0.0
+- uses: labis-suro/ios-build-action@1.0.1
   with:
     project-path: Unity-iPhone.xcodeproj
     p12-key-base64: ${{ secrets.P12_KEY_BASE64 }}
@@ -217,7 +217,7 @@ Welcome your contributions!
 ### custom keychain name
 
 ```yaml
-- uses: labis-suro/ios-build-action@v1.0.0
+- uses: labis-suro/ios-build-action@1.0.1
   with:
     custom-keychain-name: my-ios-build.keychin # or {commit-hash}-ios-build.keychain
     project-path: Unity-iPhone.xcodeproj
