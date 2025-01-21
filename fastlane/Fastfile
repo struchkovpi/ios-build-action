@@ -84,20 +84,20 @@ platform :ios do
         end
     )
 
-    if @profiles.length == 1
-      update_project_provisioning(
-        xcodeproj: ENV['PROJECT_PATH'],
-        profile: @profiles[0],
-        target_filter:
-          if update_targets
-            update_targets.map { |target| "^#{Regexp.escape(target)}$" }.join(
-              '|'
-            )
-          else
-            nil
-          end
-      )
-    end
+    #if @profiles.length == 1
+    #  update_project_provisioning(
+    #    xcodeproj: ENV['PROJECT_PATH'],
+    #    profile: @profiles[0],
+    #    target_filter:
+    #      if update_targets
+    #        update_targets.map { |target| "^#{Regexp.escape(target)}$" }.join(
+    #          '|'
+    #        )
+    #      else
+    #        nil
+    #      end
+    #  )
+    #end
 
     update_project_team(
       path: ENV['PROJECT_PATH'], teamid: ENV['TEAM_ID'], targets: update_targets
